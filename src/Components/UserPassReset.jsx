@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
@@ -9,25 +9,6 @@ const UserPassReset = () => {
     const [newPassword, setNewPassword] = useState('');
     const [responseMsg, setResponseMsg] = useState('');
     const navigate = useNavigate();
-
-    useEffect(() => {
-        // Fetch the token from the URL parameters and validate it
-        const fetchToken = async () => {
-            try {
-                const response = await axios.get(`https://day-41-task-be.onrender.com/api/user/reset-password/${token}`);
-                if (response.data.error) {
-                    toast.error(response.data.error);
-                    setResponseMsg(response.data.error);
-                }
-            } catch (error) {
-                console.error("Token validation error:", error);
-                toast.error("Token validation failed");
-                setResponseMsg("Token validation failed");
-            }
-        };
-
-        fetchToken();
-    }, [token]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
