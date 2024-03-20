@@ -4,6 +4,7 @@ import UserLogin from './Components/UserLogin';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import UserPassResetReq from './Components/UserPassResetReq';
 import UserPassReset from './Components/UserPassReset';
+import UserPassRedirect from './Components/UserPassRedirect';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path='/login' element={<UserLogin />} />
       <Route path='/forgot-password' element={<UserPassResetReq />} />
       <Route path='/reset-password/:token' element={<UserPassReset />} />
+      <Route path='/redirect-reset-password/:token' element={<UserPassRedirect />} />
      </Routes>
      </BrowserRouter>
 
